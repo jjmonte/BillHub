@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -52,11 +52,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton46" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton47" min="-2" max="-2" attributes="0"/>
+                  <Component id="addNewCustomer" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton49" min="-2" max="-2" attributes="0"/>
+                  <Component id="viewCustomerButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton48" min="-2" max="-2" attributes="0"/>
+                  <Component id="returnToMenu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -83,9 +83,9 @@
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" max="-2" attributes="0">
                               <Component id="jButton46" alignment="3" max="32767" attributes="0"/>
-                              <Component id="jButton47" alignment="3" max="32767" attributes="0"/>
-                              <Component id="jButton49" alignment="3" max="32767" attributes="0"/>
-                              <Component id="jButton48" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="addNewCustomer" alignment="3" max="32767" attributes="0"/>
+                              <Component id="viewCustomerButton" alignment="3" max="32767" attributes="0"/>
+                              <Component id="returnToMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField1" alignment="3" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -159,15 +159,18 @@
             <Property name="text" type="java.lang.String" value="Filter Results"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton47">
+        <Component class="javax.swing.JButton" name="addNewCustomer">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add A New Customer"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton48">
+        <Component class="javax.swing.JButton" name="returnToMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Return to Main Menu"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnToMenuActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -176,7 +179,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="databaseTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="53">
@@ -372,6 +375,9 @@
                     </Column>
                   </TableColumnModel>
                 </Property>
+                <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+                  <JTableSelectionModel selectionMode="0"/>
+                </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
@@ -379,10 +385,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton49">
+        <Component class="javax.swing.JButton" name="viewCustomerButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="View Customer"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewCustomerButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

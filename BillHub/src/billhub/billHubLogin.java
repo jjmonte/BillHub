@@ -212,25 +212,26 @@ public class billHubLogin extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
        
-        if (userSelect.getSelectedItem().equals("Secretary") && passwordField.getText().equals("0000"))
+        if (userSelect.getSelectedItem().equals("Secretary") && passwordField.getText().equals("0000")){
             passwordField.setText("s");
             new billHubMain().setVisible(true);
             this.setVisible(false);
-            
-        if (userSelect.getSelectedItem().equals("Assistant") && passwordField.getText().equals("0000"))
+        }
+        if (userSelect.getSelectedItem().equals("Assistant") && passwordField.getText().equals("0000")){
             passwordField.setText("a");
             new billHubMain().setVisible(true);
             this.setVisible(false);
-            
-        if (userSelect.getSelectedItem().equals("Meter Reader") && passwordField.getText().equals("0000"))
+        }
+        if (userSelect.getSelectedItem().equals("Meter Reader") && passwordField.getText().equals("0000")){
             passwordField.setText("m");
             new billHubMain().setVisible(true); //replace w meterReaderView
             this.setVisible(false);
-            
-        if (userSelect.getSelectedItem().equals("President") && passwordField.getText().equals("0000"))
+        }
+        if (userSelect.getSelectedItem().equals("President") && passwordField.getText().equals("0000")){
             passwordField.setText("p");
             new billHubMain().setVisible(true); // replace w presView
             this.setVisible(false);
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void userSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userSelectActionPerformed

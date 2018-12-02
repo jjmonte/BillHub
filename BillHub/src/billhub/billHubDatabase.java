@@ -34,11 +34,11 @@ public class billHubDatabase extends javax.swing.JFrame {
         jLabel49 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton46 = new javax.swing.JButton();
-        jButton47 = new javax.swing.JButton();
-        jButton48 = new javax.swing.JButton();
+        addNewCustomer = new javax.swing.JButton();
+        returnToMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton49 = new javax.swing.JButton();
+        databaseTable = new javax.swing.JTable();
+        viewCustomerButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,11 +69,16 @@ public class billHubDatabase extends javax.swing.JFrame {
 
         jButton46.setText("Filter Results");
 
-        jButton47.setText("Add A New Customer");
+        addNewCustomer.setText("Add A New Customer");
 
-        jButton48.setText("Return to Main Menu");
+        returnToMenu.setText("Return to Main Menu");
+        returnToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnToMenuActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        databaseTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Sally Smith",  new Integer(1),  new Integer(12548774), null},
                 {"Theodore Adams",  new Integer(2),  new Integer(55599966), null},
@@ -141,9 +146,15 @@ public class billHubDatabase extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        databaseTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(databaseTable);
 
-        jButton49.setText("View Customer");
+        viewCustomerButton.setText("View Customer");
+        viewCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewCustomerButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -158,11 +169,11 @@ public class billHubDatabase extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton46)
                 .addGap(18, 18, 18)
-                .addComponent(jButton47)
+                .addComponent(addNewCustomer)
                 .addGap(18, 18, 18)
-                .addComponent(jButton49)
+                .addComponent(viewCustomerButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton48)
+                .addComponent(returnToMenu)
                 .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -184,9 +195,9 @@ public class billHubDatabase extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                             .addComponent(jButton46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton48)
+                            .addComponent(addNewCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(returnToMenu)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
@@ -213,6 +224,16 @@ public class billHubDatabase extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void viewCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCustomerButtonActionPerformed
+        new billHubCustomer().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_viewCustomerButtonActionPerformed
+
+    private void returnToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnToMenuActionPerformed
+         new billHubMain().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_returnToMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,17 +271,17 @@ public class billHubDatabase extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addNewCustomer;
+    private javax.swing.JTable databaseTable;
     private javax.swing.JButton jButton46;
-    private javax.swing.JButton jButton47;
-    private javax.swing.JButton jButton48;
-    private javax.swing.JButton jButton49;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton returnToMenu;
+    private javax.swing.JButton viewCustomerButton;
     // End of variables declaration//GEN-END:variables
 }

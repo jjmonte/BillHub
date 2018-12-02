@@ -57,7 +57,7 @@
                   <Group type="103" groupAlignment="2" attributes="0">
                       <Component id="jButton3" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton4" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="viewDatabase" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton5" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton2" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -70,7 +70,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="jLabel47" min="-2" pref="74" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="viewDatabase" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="jButton4" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -108,12 +108,12 @@
             <Property name="text" type="java.lang.String" value="Secretary Mode"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="viewDatabase">
           <Properties>
             <Property name="text" type="java.lang.String" value="View Customer Database"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewDatabaseActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
