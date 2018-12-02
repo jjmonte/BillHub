@@ -226,13 +226,17 @@ public class billHubDatabase extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void viewCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCustomerButtonActionPerformed
-        new billHubCustomer().setVisible(true);
+        String customerName = (String)(databaseTable.getModel().getValueAt(databaseTable.getSelectedRow(), 0));
+        Customer fetchedCustomer = //Add logic for fetching customer object
+        billHubCustomer customer = new billHubCustomer(fetchedCustomer);        
+   
+        customer.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_viewCustomerButtonActionPerformed
 
     private void returnToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnToMenuActionPerformed
          new billHubMain().setVisible(true);
-        this.setVisible(false);
+
     }//GEN-LAST:event_returnToMenuActionPerformed
 
     /**
