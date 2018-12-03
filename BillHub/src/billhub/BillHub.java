@@ -6,6 +6,7 @@
 
 package billhub;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,12 +32,14 @@ public class BillHub {
         
          // hardcode customers
         
+         NumberFormat formatter = NumberFormat.getCurrencyInstance();
+         
         List<Bill> billList1 = new ArrayList<>(); // billList for 1st sample customer
         
-        billList1.add(new Bill("15-Nov", 123456, 4500, 44.50, 0.00, 0.00, 44.50, 
+        billList1.add(new Bill("15-Nov", 123456, 4500, 44.50, 0.00,  0.00,  44.50, 
                 44.50, "12/12/2017",  44.50, 0.00, "254", "12/13/2017"));
         
-        this.database[0] = new Customer("Sally Smith", "304-588-1234", "188 Temple Dr.\n" +
+        this.database[0] = new Customer("1", "Sally Smith", "304-588-1234", "188 Temple Dr.\n" +
         "Vallley Falls, WV, 25443", "12548774", "Mar-10", 75.00, true, "02/18/2017", billList1);
         
     
@@ -69,16 +72,7 @@ public class BillHub {
         
         new billHubLogin().setVisible(true);
         
-        // hardcode customers
-        List<Customer> database = new ArrayList<>();
-        List<Bill> billList1 = new ArrayList<>(); // billList for 1st sample customer
-        
-        billList1.add(new Bill("15-Nov", 123456, 4500, 44.50, 0.00, 0.00, 44.50, 
-                44.50, "12/12/2017",  44.50, 0.00, "254", "12/13/2017"));
-        
-        database.add(new Customer("Sally Smith", "304-588-1234", "188 Temple Dr.\n" +
-        "Vallley Falls, WV, 25443", "12548774", "Mar-10", 75.00, true, "02/18/2017", billList1));
-        
+       
     }
     
 }

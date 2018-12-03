@@ -13,12 +13,13 @@ import java.util.List;
  */
 public class Customer {
     
+    public String accNum;
     public String name;
     public String phoneNumber;
     public String address;
     public String meterNumber;
     public String dateMeterSet;
-    public double deposit;
+    public Double deposit;
     public boolean refunded;
     public String depRec; //deposit received
     public List<Bill> billList;
@@ -35,10 +36,11 @@ public class Customer {
         
     }
     
-    public Customer(String name, String phoneNumber, String address, 
+    public Customer(String accNum, String name, String phoneNumber, String address, 
             String meterNumber, String dateMeterSet, double deposit, 
             boolean refunded, String depRec, List<Bill> billList) {
         
+        this.accNum = accNum;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -48,6 +50,8 @@ public class Customer {
         this.refunded = refunded;
         this.depRec = depRec;
         this.billList = billList;
+        
+        
         
     }
     
