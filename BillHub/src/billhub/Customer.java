@@ -5,6 +5,8 @@
  */
 package billhub;
 
+import java.util.List;
+
 /**
  *
  * @author jon
@@ -19,6 +21,7 @@ public class Customer {
     public double deposit;
     public boolean refunded;
     public String depRec; //deposit received
+    public List<Bill> billList;
     
     public int currentMeterReading; // this will be updated with the most recent
                                     // meter reading, once it is input from meter
@@ -27,7 +30,26 @@ public class Customer {
     // customer will have to be an array '
     // we declare length of in the constructor,
     // should be as long as number of cells in row of the spreadsheet
-    public Object billHistory[]; 
+    public Customer() {
+        
+        
+    }
+    
+    public Customer(String name, String phoneNumber, String address, 
+            String meterNumber, String dateMeterSet, double deposit, 
+            boolean refunded, String depRec, List<Bill> billList) {
+        
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.meterNumber = meterNumber;
+        this.dateMeterSet = dateMeterSet;
+        this.deposit = deposit;
+        this.refunded = refunded;
+        this.depRec = depRec;
+        this.billList = billList;
+        
+    }
     
     public String getName() {
       return this.name;
@@ -57,33 +79,41 @@ public class Customer {
       return this.depRec;
     }
     
-    public void changeName(String newS) {
+    public List<Bill> getBillList() {
+        return this.billList;
+    }
+    
+    public void setName(String newS) {
         this.name = newS;
     }
     
-    public void changePhone(String newS) {
+    public void setPhone(String newS) {
       this.phoneNumber = newS;
     }
     
-    public void changeAddress(String newS) {
+    public void setAddress(String newS) {
       this.address = newS;
     }
     
-    public String changeMeter(String newS) {
-      return this.meterNumber = newS;
+    public void setMeter(String newS) {
+      this.meterNumber = newS;
     }
     
-    public String changeMeterDate(String newS) {
-      return this.dateMeterSet = newS;
+    public void setMeterDate(String newS) {
+      this.dateMeterSet = newS;
     }
     
-    public double changeDeposit(double newD) {
-      return this.deposit = newD;
+    public void setDeposit(double newD) {
+      this.deposit = newD;
     }
     
-    public String changeDepRec(String newS) {
-      return this.depRec = newS;
+    public void setDepRec(String newS) {
+      this.depRec = newS;
     }
+    
+    
+    
+    
     
     
 }

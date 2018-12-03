@@ -5,6 +5,9 @@
  */
 package billhub;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author jon
@@ -227,7 +230,7 @@ public class billHubDatabase extends javax.swing.JFrame {
 
     private void viewCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCustomerButtonActionPerformed
         String customerName = (String)(databaseTable.getModel().getValueAt(databaseTable.getSelectedRow(), 0));
-        Customer fetchedCustomer = //Add logic for fetching customer object
+        Customer fetchedCustomer = BillHub.database[0];//Add logic for fetching customer object
         billHubCustomer customer = new billHubCustomer(fetchedCustomer);        
    
         customer.setVisible(true);

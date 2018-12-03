@@ -6,6 +6,9 @@
 
 package billhub;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author The Lecture Nappers
@@ -14,6 +17,7 @@ public class BillHub {
 
     public static String[] userAccounts = new String[4];
     public static String[] passwords = new String[4];
+    public static Customer[] database = new Customer[30];
     
     public BillHub() {
         
@@ -24,8 +28,20 @@ public class BillHub {
         for (int i = 0; i < 4; i++) {
             passwords[i] = "0000";
         }
+        
+         // hardcode customers
+        
+        List<Bill> billList1 = new ArrayList<>(); // billList for 1st sample customer
+        
+        billList1.add(new Bill("15-Nov", 123456, 4500, 44.50, 0.00, 0.00, 44.50, 
+                44.50, "12/12/2017",  44.50, 0.00, "254", "12/13/2017"));
+        
+        this.database[0] = new Customer("Sally Smith", "304-588-1234", "188 Temple Dr.\n" +
+        "Vallley Falls, WV, 25443", "12548774", "Mar-10", 75.00, true, "02/18/2017", billList1);
+        
     
     }
+    
     
     /**
      * @param args the command line arguments
@@ -53,6 +69,15 @@ public class BillHub {
         
         new billHubLogin().setVisible(true);
         
+        // hardcode customers
+        List<Customer> database = new ArrayList<>();
+        List<Bill> billList1 = new ArrayList<>(); // billList for 1st sample customer
+        
+        billList1.add(new Bill("15-Nov", 123456, 4500, 44.50, 0.00, 0.00, 44.50, 
+                44.50, "12/12/2017",  44.50, 0.00, "254", "12/13/2017"));
+        
+        database.add(new Customer("Sally Smith", "304-588-1234", "188 Temple Dr.\n" +
+        "Vallley Falls, WV, 25443", "12548774", "Mar-10", 75.00, true, "02/18/2017", billList1));
         
     }
     
