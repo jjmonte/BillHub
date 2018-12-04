@@ -73,6 +73,11 @@ public class billHubDatabase extends javax.swing.JFrame {
         jButton46.setText("Filter Results");
 
         addNewCustomer.setText("Add A New Customer");
+        addNewCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewCustomerActionPerformed(evt);
+            }
+        });
 
         returnToMenu.setText("Return to Main Menu");
         returnToMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -242,6 +247,10 @@ public class billHubDatabase extends javax.swing.JFrame {
          this.setVisible(false);
 
     }//GEN-LAST:event_returnToMenuActionPerformed
+
+    private void addNewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewCustomerActionPerformed
+        new createCustomerDialog(this,true).setVisible(true);
+    }//GEN-LAST:event_addNewCustomerActionPerformed
 
     /**
      * @param args the command line arguments

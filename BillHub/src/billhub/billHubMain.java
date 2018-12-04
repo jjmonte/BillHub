@@ -167,7 +167,7 @@ public class billHubMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void modifyBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyBillingActionPerformed
-        // TODO add your handling code here:
+        new modifyBilling(this,true).setVisible(true);
     }//GEN-LAST:event_modifyBillingActionPerformed
 
     /**

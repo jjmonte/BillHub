@@ -120,6 +120,7 @@ public class billHubCustomer extends javax.swing.JFrame {
         meterTypeLabel = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
         enterMeterReading = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -259,7 +260,6 @@ public class billHubCustomer extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addGap(10, 10, 10))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,6 +329,13 @@ public class billHubCustomer extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Return");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
@@ -338,27 +345,29 @@ public class billHubCustomer extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel46))
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton51)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton50))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(applyPaymentButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(calculateBillButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton52)
-                        .addGap(18, 18, 18)
-                        .addComponent(enterMeterReading)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(applyPaymentButton)
+                .addGap(18, 18, 18)
+                .addComponent(calculateBillButton)
+                .addGap(18, 18, 18)
+                .addComponent(jButton52)
+                .addGap(18, 18, 18)
+                .addComponent(enterMeterReading)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jButton51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton50)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,7 +380,8 @@ public class billHubCustomer extends javax.swing.JFrame {
                             .addComponent(applyPaymentButton)
                             .addComponent(calculateBillButton)
                             .addComponent(jButton52)
-                            .addComponent(enterMeterReading))))
+                            .addComponent(enterMeterReading)
+                            .addComponent(jButton1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
@@ -400,14 +410,12 @@ public class billHubCustomer extends javax.swing.JFrame {
 
     private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Are you sure you want to terminate this customer? "
-                + "This customer will be removed from the database, but their records will remain.");
+        new terminateCustomerDialog(this,true).setVisible(true);
     }//GEN-LAST:event_jButton51ActionPerformed
 
     private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Are you sure you want to suspend this customer? "
-                + "This customer will remain in the database, but their bills will not be calculated and they will be exempt from statistics until they are unsuspended.");
+      new suspendCustomerDialog(this,true).setVisible(true);
+
     }//GEN-LAST:event_jButton50ActionPerformed
 
     private void recLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recLabelActionPerformed
@@ -419,12 +427,11 @@ public class billHubCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_nameLabelActionPerformed
 
     private void applyPaymentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyPaymentButtonActionPerformed
-        // TODO add your handling code here:
-        // this creates a new row 
+        new applyPaymentDialog(this,true).setVisible(true);
     }//GEN-LAST:event_applyPaymentButtonActionPerformed
 
     private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
-        // TODO add your handling code here:
+        new leakAdjustmentDialog(this,true).setVisible(true);
     }//GEN-LAST:event_jButton52ActionPerformed
 
     private void meterTypeLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meterTypeLabelActionPerformed
@@ -449,6 +456,11 @@ public class billHubCustomer extends javax.swing.JFrame {
         customer.setVisible(true);
         
     }//GEN-LAST:event_calculateBillButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        new billHubDatabase().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -493,6 +505,7 @@ public class billHubCustomer extends javax.swing.JFrame {
     private javax.swing.JTextField dateMeterSetLabel;
     private javax.swing.JTextField depositLabel;
     private javax.swing.JButton enterMeterReading;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton52;
