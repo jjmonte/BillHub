@@ -7,6 +7,7 @@ package billhub;
 
 import static java.lang.String.valueOf;
 import java.text.NumberFormat;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,12 +16,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class billHubCustomer extends javax.swing.JFrame {
 
+    private Customer customerData;
+
     /**
      * Creates new form billHubCustomer
      * @param customerData - fetched customer
      */
     public billHubCustomer(Customer customerData) {
         initComponents();
+        this.customerData = customerData;
         System.out.println(customerData.getName());
         nameLabel.setText(customerData.getName());
         phoneLabel.setText(customerData.getPhone());
@@ -30,7 +34,8 @@ public class billHubCustomer extends javax.swing.JFrame {
         depositLabel.setText("$" + valueOf(customerData.getDeposit()) + "0");
         recLabel.setText(customerData.getDepRec());
         accountNumberLabel.setText("#" + customerData.accNum);
-       
+        meterTypeLabel.setText(customerData.getMeterType());
+        
      
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         
@@ -41,6 +46,8 @@ public class billHubCustomer extends javax.swing.JFrame {
                 "Reading Date", "Previous Reading", "Gallons Used", "Amount Charged","Balance Fwd.","Penalty/Disc.","Total Bill", "Collected","Date Paid","Bal. Due", "Credit","Remarks","Billing Date"
             }
         );
+         
+         Object[] a = customerData.getBillList().get(customerData.getBillList().size()-1).bill;
          for (int i = 0; i < customerData.getBillList().size(); i++) {
                     String[] billStr = new String[13];
                     billStr[0] = (String) customerData.getBillList().get(i).bill[0];
@@ -112,6 +119,7 @@ public class billHubCustomer extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         meterTypeLabel = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
+        enterMeterReading = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,6 +140,11 @@ public class billHubCustomer extends javax.swing.JFrame {
         });
 
         calculateBillButton.setText("Calculate Bill");
+        calculateBillButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateBillButtonActionPerformed(evt);
+            }
+        });
 
         jButton50.setText("Suspend Customer");
         jButton50.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +162,11 @@ public class billHubCustomer extends javax.swing.JFrame {
         });
 
         jButton52.setText("Apply Leak Adjustment");
+        jButton52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton52ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -194,6 +212,12 @@ public class billHubCustomer extends javax.swing.JFrame {
         jLabel8.setText("Date Set:");
 
         jLabel9.setText("Type:");
+
+        meterTypeLabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meterTypeLabelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -279,7 +303,7 @@ public class billHubCustomer extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(refundLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(meterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,7 +313,7 @@ public class billHubCustomer extends javax.swing.JFrame {
                             .addComponent(dateMeterSetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -297,6 +321,13 @@ public class billHubCustomer extends javax.swing.JFrame {
         jLabel47.setForeground(new java.awt.Color(254, 254, 254));
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel47.setText("BillHub");
+
+        enterMeterReading.setText("Enter Meter Reading Directly");
+        enterMeterReading.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterMeterReadingActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -320,7 +351,9 @@ public class billHubCustomer extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(calculateBillButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton52)))
+                        .addComponent(jButton52)
+                        .addGap(18, 18, 18)
+                        .addComponent(enterMeterReading)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
@@ -337,7 +370,8 @@ public class billHubCustomer extends javax.swing.JFrame {
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                             .addComponent(applyPaymentButton)
                             .addComponent(calculateBillButton)
-                            .addComponent(jButton52))))
+                            .addComponent(jButton52)
+                            .addComponent(enterMeterReading))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
@@ -366,10 +400,14 @@ public class billHubCustomer extends javax.swing.JFrame {
 
     private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Are you sure you want to terminate this customer? "
+                + "This customer will be removed from the database, but their records will remain.");
     }//GEN-LAST:event_jButton51ActionPerformed
 
     private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Are you sure you want to suspend this customer? "
+                + "This customer will remain in the database, but their bills will not be calculated and they will be exempt from statistics until they are unsuspended.");
     }//GEN-LAST:event_jButton50ActionPerformed
 
     private void recLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recLabelActionPerformed
@@ -384,6 +422,33 @@ public class billHubCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
         // this creates a new row 
     }//GEN-LAST:event_applyPaymentButtonActionPerformed
+
+    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton52ActionPerformed
+
+    private void meterTypeLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meterTypeLabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_meterTypeLabelActionPerformed
+
+    private void enterMeterReadingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterMeterReadingActionPerformed
+        // TODO add your handling code here:
+        new enterMeterReadings(this.customerData.accNum).setVisible(true);
+        this.setVisible(false);
+        
+        
+        
+        
+    }//GEN-LAST:event_enterMeterReadingActionPerformed
+
+    private void calculateBillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateBillButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.customerData.billList.get(this.customerData.billList.size()-1).bill[3] = this.customerData.CalculateBill();
+        billHubCustomer customer = new billHubCustomer(BillHub.database[this.customerData.accNum]);    
+        customer.setVisible(true);
+        
+    }//GEN-LAST:event_calculateBillButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -427,6 +492,7 @@ public class billHubCustomer extends javax.swing.JFrame {
     private javax.swing.JButton calculateBillButton;
     private javax.swing.JTextField dateMeterSetLabel;
     private javax.swing.JTextField depositLabel;
+    private javax.swing.JButton enterMeterReading;
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton52;

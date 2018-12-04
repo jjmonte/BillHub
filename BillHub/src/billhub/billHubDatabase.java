@@ -230,7 +230,7 @@ public class billHubDatabase extends javax.swing.JFrame {
 
     private void viewCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCustomerButtonActionPerformed
         String customerName = (String)(databaseTable.getModel().getValueAt(databaseTable.getSelectedRow(), 0));
-        Customer fetchedCustomer = BillHub.database[0];//Add logic for fetching customer object
+        Customer fetchedCustomer = BillHub.database[1];//Add logic for fetching customer object
         billHubCustomer customer = new billHubCustomer(fetchedCustomer);        
    
         customer.setVisible(true);
@@ -239,6 +239,7 @@ public class billHubDatabase extends javax.swing.JFrame {
 
     private void returnToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnToMenuActionPerformed
          new billHubMain().setVisible(true);
+         this.setVisible(false);
 
     }//GEN-LAST:event_returnToMenuActionPerformed
 

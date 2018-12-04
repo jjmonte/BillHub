@@ -64,6 +64,8 @@
                           <Component id="calculateBillButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton52" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="enterMeterReading" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -86,10 +88,11 @@
                               <Component id="applyPaymentButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="calculateBillButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton52" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="enterMeterReading" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel1" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -137,6 +140,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Calculate Bill"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calculateBillButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton50">
           <Properties>
@@ -161,6 +167,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Apply Leak Adjustment"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton52ActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel1">
 
@@ -270,7 +279,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="meterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -283,7 +292,7 @@
                           <Component id="jScrollPane2" min="-2" pref="155" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="248" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="242" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -402,6 +411,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="meterTypeLabel">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="meterTypeLabelActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -416,6 +428,14 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="BillHub"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="enterMeterReading">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Enter Meter Reading Directly"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterMeterReadingActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

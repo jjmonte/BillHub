@@ -225,12 +225,12 @@ public class billHubLogin extends javax.swing.JFrame {
         }
         if (userSelect.getSelectedItem().equals("Meter Reader") && passwordField.getText().equals("0000")){
             passwordField.setText("m");
-            new billHubMain().setVisible(true); //replace w meterReaderView
+            new billHubMeterReader().setVisible(true); //replace w meterReaderView
             this.setVisible(false);
         }
         if (userSelect.getSelectedItem().equals("President") && passwordField.getText().equals("0000")){
             passwordField.setText("p");
-            new billHubMain().setVisible(true); // replace w presView
+            new billHubPresident().setVisible(true); // replace w presView
             this.setVisible(false);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
